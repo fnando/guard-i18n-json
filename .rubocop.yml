@@ -1,0 +1,16 @@
+---
+inherit_gem:
+  rubocop-fnando: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - lib/guard/i18njson/templates/Guardfile
+
+Naming/FileName:
+  Exclude:
+    - lib/guard/i18n-json.rb
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - lib/guard/i18n_json/templates/Guardfile

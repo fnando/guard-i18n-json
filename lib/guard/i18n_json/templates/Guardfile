@@ -1,0 +1,8 @@
+guard(:i18n_json,
+      run_on_start: true,
+      config_file: "./config/i18n_json.yml",
+      require_file: "./config/boot.rb") do
+  watch(%r{^(app|config)/locales/.+\.(yml|po)$})
+  watch(%r{^config/i18n_json.yml$})
+  watch("Gemfile")
+end
