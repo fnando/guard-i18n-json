@@ -33,23 +33,25 @@ module Guard
       export_files
     end
 
-    def run_on_additions(_paths)
-      export_files
+    def run_on_additions(paths)
+      export_files(paths)
     end
 
-    def run_on_modifications(_paths)
-      export_files
+    def run_on_modifications(paths)
+      export_files(paths)
     end
 
-    def run_on_removals(_paths)
-      export_files
+    def run_on_removals(paths)
+      export_files(paths)
     end
 
-    def export_files
+    def export_files(changes = nil)
       return unless validate_file(:config_file, config_file)
       return unless validate_file(:require_file, require_file)
 
       current_thread&.exit
+
+      info("Changes detected: #{changes.join(', ')}") if changes
 
       @current_thread = Thread.new do
         require @require_file
@@ -68,6 +70,10 @@ module Guard
 
     def error(message)
       ::Guard::UI.error "[guard-i18n-json] #{message}"
+    end
+
+    def info(message)
+      ::Guard::UI.info "[guard-i18n-json] #{message}"
     end
   end
 end
