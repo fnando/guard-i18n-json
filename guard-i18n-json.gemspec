@@ -7,8 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = Guard::I18nJson::VERSION
   spec.authors       = ["Nando Vieira"]
   spec.email         = ["me@fnando.com"]
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
 
-  spec.summary       = "Guard::I18nJson automatically exports your I18n " \
+  spec.summary       = "guard-i18n-json automatically exports your I18n " \
                         "translations as JSON files"
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/fnando/guard-i18n-json"
